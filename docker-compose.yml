@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+    postgresql-no-data:
+        # docker exec -it postgresql-no-data psql -U postgres
+        image: postgres:13.2
+        environment:
+            POSTGRES_PASSWORD: donthackme123
+        container_name: postgresql-no-data
+    postgresql-with-data:
+        # docker exec -it postgresql-with-data psql -U postgres
+        image: postgres:13.2
+        environment:
+            POSTGRES_PASSWORD: donthackme123
+        container_name: postgresql-with-data
+        volumes:
+            - ./sql_files/:/docker-entrypoint-initdb.d
